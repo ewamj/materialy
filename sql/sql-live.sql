@@ -64,7 +64,53 @@ DROP TABLE Users;
 
 -- 7. usuwanie tabeli (DROP TABLE)
 
+
 -- 8. dodawanie nowych rekordów (INSERT)
+
+DESCRIBE Users;
+
+
+# INSERT INTO [table] VALUES (..values..)
+# INSERT INTO [table] (..columns..) VALUES (..values..)
+# INSERT INTO [table] (..columns..) VALUES (..values..), (..values..), (..values..)
+
+INSERT INTO Users VALUES (null, 'Jan2', 30, '123123123');
+INSERT INTO Users (id, age, name, telefon) VALUES (1, 30, 'Jan', '123123123');
+INSERT INTO Users (name) VALUE ('Kasia8');
+INSERT INTO Users (id, name) VALUE (2, 'Marcin');
+INSERT INTO Users (id, name) VALUE (100, 'Marcin');
+INSERT INTO Users (id, name) VALUE (101, 'Marcin2');
+INSERT INTO Users (id, name) VALUE (6, 'Jurek');
+
+INSERT INTO Users (id, name) VALUE (200, 'Marcin3');
+INSERT INTO Users (name) VALUE ('Kasia8');
+INSERT INTO Users (id, name) VALUE (null, 'Kasia9');
+
+INSERT INTO Users (id, name) VALUES
+    (null, 'Kasia10'),
+    (null, 'Kasia11'),
+    (null, 'Kasia12'),
+    (null, 'Kasia13'),
+    (null, 'Kasia14'),
+    (null, 'Kasia15')
+;
+INSERT INTO Users VALUES
+    (null, 'Kasia20', 20, '12331231'),
+    (null, 'Kasia21', 20, '12331231'),
+    (null, 'Kasia22', 20, '12331231'),
+    (null, 'Kasia23', 20, '12331231'),
+    (null, 'Kasia24', 20, '12331231'),
+    (null, 'Kasia25', 20, '12331231')
+;
+
+
+DROP TABLE Users;
+CREATE TABLE Users (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    age TINYINT UNSIGNED,
+    telefon VARCHAR(20)
+);
 
 
 
