@@ -122,13 +122,21 @@ CREATE TABLE Users (
 -- 	- obliczenia na kolumnach
 -- 	- użycie DISTINCT
 
+DESCRIBE Users;
 # select [kolumny] from [tabela]
 
+SELECT * FROM Users;
+
 # wybieranie poszczegolnych kolumn i zmiana ich nazwy w raporcie
+SELECT id, name FROM Users;
+SELECT id as "IDENTYFIKATOR", name as "NAZWISKO UZYTKOWNIKA", age as "WIEK" FROM Users;
 
 # kalkulacje w ramach kolumny
+SELECT id, name, age, 2017-age AS "birth" FROM Users;
 
 # usuwanie duplikatów
+SELECT DISTINCT age FROM Users;
+SELECT DISTINCT vat, stock FROM Products;
 
 
 -- ZADANIE 4
