@@ -142,14 +142,30 @@ SELECT DISTINCT vat, stock FROM Products;
 -- ZADANIE 4
 
 -- 10. warunkowy SELECT:
--- 	- dodanie WHERE i operatory =, <, >, !=. <>, <= ,>=
--- 	- between + and
--- 	- in (...) not in (...)
--- 	- like, not like, _,  %
--- 	- operatory OR + AND
 
 # select [kolumny] from [tabela] where [warunki]
 
+-- 	- dodanie WHERE i operatory =, <, >, !=. <>, <= ,>=
+SELECT * FROM Users WHERE age>=30;
+SELECT * FROM Users WHERE age<>30;
+SELECT * FROM Users WHERE name='Jan';
+
+-- 	- between + and
+SELECT * FROM Users WHERE age BETWEEN 30 AND 40;
+
+-- 	- in (...) not in (...)
+SELECT * FROM Users WHERE age IN (20,23,30,31);
+SELECT * FROM Users WHERE age NOT IN (23,30,31);
+
+-- 	- like, not like, _,  %
+SELECT * FROM Users WHERE name LIKE '%J_n_';
+
+-- 	- operatory OR + AND
+SELECT * FROM Users WHERE name='Jan' OR name='Jurek';
+-- SELECT * FROM Users WHERE age BETWEEN 30 AND 40;
+SELECT * FROM Users WHERE age>=30 AND age<=40;
+
+SELECT name FROM Users WHERE age=30;
 
 -- ZADANIE 5
 
