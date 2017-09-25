@@ -9,6 +9,7 @@
 -- 1. wprowadzenie
 -- SQL = Structured Query Language
 -- Relational databases
+-- DBMS
 
 
 
@@ -28,13 +29,35 @@
 -- https://dev.mysql.com/doc/refman/5.7/en/date-and-time-types.html
 -- https://dev.mysql.com/doc/refman/5.7/en/char.html
 
+
+CREATE DATABASE isa;
+USE isa;
+
 -- 5. tworzenie nowej tabeli "User" (CREATE TABLE + DESCRIBE)
+
+CREATE TABLE User (
+    id INT UNSIGNED,
+    name VARCHAR(100),
+    age TINYINT UNSIGNED
+);
+
+DESCRIBE User;
+
 
 
 -- ZADANIE 1
 
-
 -- 6. zmiana nazwy i rozszerzanie tabeli (RENAME TABLE oraz ALTER TABLE ADD/DROP/RENAME TO)
+
+DESCRIBE Users;
+RENAME TABLE User TO Users;
+
+ALTER TABLE Users ADD pesel CHAR(9) NOT NULL AFTER age;
+ALTER TABLE Users DROP pesel;
+ALTER TABLE Users MODIFY phone CHAR(20) NOT NULL;
+ALTER TABLE Users CHANGE phone telefon VARCHAR(20);
+
+
 
 -- ZADANIE 2
 
