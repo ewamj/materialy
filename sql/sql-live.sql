@@ -173,6 +173,15 @@ SELECT name FROM Users WHERE age=30;
 -- 11. kolejność i podzbiory SELECT:
 -- 	- ORDER BY
 -- 	- LIMIT i OFFSET
+SELECT * FROM Users ORDER BY name DESC;
+SELECT * FROM Users ORDER BY name, age DESC;
+
+SELECT name FROM Users;
+SELECT Users.name FROM Users;
+SELECT u.name FROM Users u;
+
+SELECT * FROM Users ORDER BY name DESC LIMIT 5;
+# SELECT u2.* FROM (SELECT u1.* FROM Users u1 LIMIT 5) u2 ORDER BY u2.name;
 
 # select [kolumny] from [tabela] where [warunek] order by [kolumna] [kierunek=ASC/DESC] LIMIT [liczba] OFFSET [liczba]
 
