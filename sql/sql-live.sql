@@ -57,7 +57,7 @@ ALTER TABLE Users DROP pesel;
 ALTER TABLE Users MODIFY phone CHAR(20) NOT NULL;
 ALTER TABLE Users CHANGE phone telefon VARCHAR(20);
 
-
+DROP TABLE Users;
 
 -- ZADANIE 2
 
