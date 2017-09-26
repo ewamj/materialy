@@ -43,4 +43,10 @@ INSERT INTO Categories (name) VALUES
 
 ALTER TABLE Products ADD category_id INT UNSIGNED;
 ALTER TABLE Products ADD FOREIGN KEY (category_id) REFERENCES Categories(id);
+SELECT  * FROM Products;
 
+UPDATE Products SET category_id=1 WHERE id=1;
+UPDATE Products SET category_id=2 WHERE id=2;
+UPDATE Products SET category_id=3 WHERE id=3;
+UPDATE Products SET category_id=4 WHERE id IN (4,5,6);
+UPDATE Products SET category_id=5 WHERE id=7;

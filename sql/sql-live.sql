@@ -297,16 +297,35 @@ DELETE FROM Users WHERE id=2;
 -- 16. INNER JOIN / JOIN - wspólny podzbiór rekordów + alternatywny zapis (bez JOIN)
 
 # select [kolumny] from [tabela1] inner join [tabela2] on [warunek -> tabela1.pole=tabela2.pole]
+SELECT * FROM Users;
+SELECT * FROM Posts;
+
+SELECT Users.name FROM Users;
+SELECT u.name FROM Users u;
+
+SELECT u.name, u.age, p.title FROM Users u INNER JOIN Posts p ON p.user_id=u.id;
+SELECT u.name, u.age, p.title FROM Users u JOIN Posts p ON p.user_id=u.id;
+
 
 # select [kolumny] from [tabela1], [tabela2] where [warunek -> tabela1.pole=tabela2.pole]
+SELECT u.name, u.age, p.title FROM Users u JOIN Posts p ON p.user_id=u.id;
+SELECT u.name, u.age, p.title FROM Users u, Posts p WHERE p.user_id=u.id;
+
 
 
 -- ZADANIE 11
 
 
 -- 17. (LEFT, RIGHT) [OUTER] JOIN / LEFT JOIN - asymetryczne dane (indywidualny i wspólny podzbiór)
+SELECT u.name, u.age, p.title FROM Users u LEFT JOIN Posts p ON p.user_id=u.id;
+SELECT u.name, u.age, p.title FROM Posts p LEFT JOIN Users u  ON p.user_id=u.id;
+
+SELECT u.name, u.age, p.title FROM Users u RIGHT JOIN Posts p ON p.user_id=u.id;
+
 
 # select [kolumny] from [tabela1] left join [tabela2] on [warunek -> tabela1.pole=tabela2.pole]
+
+
 
 
 -- ZADANIE 12
