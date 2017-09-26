@@ -246,6 +246,9 @@ DELETE FROM Users;
 TRUNCATE Users;
 
 INSERT INTO Users VALUES (null, 'Jan', 1, 20, '123123132');
+INSERT INTO Users VALUES (null, 'Kasia', 1, 23, '123123132');
+INSERT INTO Users VALUES (null, 'Jurek', 2, 24, '123123132');
+INSERT INTO Users VALUES (null, 'Wojtek', 2, 27, '123123132');
 
 CREATE TABLE imiona (
     name VARCHAR(100)
@@ -257,9 +260,33 @@ INSERT INTO imiona SELECT age FROM Users;
 
 
 -- ZADANIE 9
-	
+
+SELECT * FROM Users;
+
 
 -- 14. tworzymy drugą tabelę Posts (id, date, title, body) i wprowadzamy Foreign Key "user_id", np. FOREIGN KEY (PersonID) REFERENCES Persons(ID)
+
+DESCRIBE Users;
+
+CREATE TABLE Posts (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    date DATETIME,
+    title VARCHAR(255),
+    body MEDIUMTEXT,
+    user_id INT UNSIGNED,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+
+DESCRIBE Posts;
+
+SELECT * FROM Users;
+INSERT INTO Posts VALUES (null, '2017-10-10 12:00', 'tytul 1 posta', 'tresc 1 posta', null);
+INSERT INTO Posts VALUES (null, '2017-10-10 12:00', 'tytul 2 posta', 'tresc 2 posta', 2);
+INSERT INTO Posts VALUES (null, '2017-10-10 12:00', 'tytul 3 posta', 'tresc 3 posta', 3);
+SELECT * FROM Posts;
+
+DELETE FROM Posts WHERE user_id=2;
+DELETE FROM Users WHERE id=2;
 
 
 -- ZADANIE 10
