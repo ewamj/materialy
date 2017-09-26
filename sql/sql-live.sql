@@ -326,17 +326,21 @@ SELECT u.name, u.age, p.title FROM Users u RIGHT JOIN Posts p ON p.user_id=u.id;
 # select [kolumny] from [tabela1] left join [tabela2] on [warunek -> tabela1.pole=tabela2.pole]
 
 
-
-
 -- ZADANIE 12
 
 
 -- 18. posługiwanie się operatorem NULL i dobre praktyki (IS NULL / IS NOT NULL)
 
+SELECT * FROM Products WHERE category_id IS NULL;
+SELECT * FROM Products WHERE category_id IS NOT NULL;
+
+
 -- ZADANIE 13
 
 
 -- 19. wyrażenia i obliczenia w ramach zapytań
+
+
 
 -- ZADANIE 14
 
