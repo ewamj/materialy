@@ -238,7 +238,22 @@ UPDATE Users SET name='Jan' WHERE name LIKE 'Jan%';
 
 
 -- 13. usuwanie (DELETE)
+SELECT * FROM Users;
 
+DELETE FROM Users WHERE id=4;
+
+DELETE FROM Users;
+TRUNCATE Users;
+
+INSERT INTO Users VALUES (null, 'Jan', 1, 20, '123123132');
+
+CREATE TABLE imiona (
+    name VARCHAR(100)
+);
+
+INSERT INTO imiona VALUES ('Jan'), ('Kasia'), ('Jurek');
+SELECT * FROM imiona;
+INSERT INTO imiona SELECT age FROM Users;
 
 
 -- ZADANIE 9
