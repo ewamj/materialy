@@ -6,3 +6,5 @@
 -- 	- wyświetl minimalną, maksymalną oraz średnią cenę produktów w sklepie
 -- 	- wyświetl listę producentów wraz z ich liczbą produktów w ofercie sklepu
 
+DESCRIBE Products;
+SELECT * FROM Products;

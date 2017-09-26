@@ -173,17 +173,23 @@ SELECT name FROM Users WHERE age=30;
 -- 11. kolejność i podzbiory SELECT:
 -- 	- ORDER BY
 -- 	- LIMIT i OFFSET
+
+# select [kolumny] from [tabela] where [warunek]
+# order by [kolumna] [kierunek=ASC/DESC] LIMIT [liczba] OFFSET [liczba]
+
 SELECT * FROM Users ORDER BY name DESC;
 SELECT * FROM Users ORDER BY name, age DESC;
+
 
 SELECT name FROM Users;
 SELECT Users.name FROM Users;
 SELECT u.name FROM Users u;
 
-SELECT * FROM Users ORDER BY name DESC LIMIT 5;
-# SELECT u2.* FROM (SELECT u1.* FROM Users u1 LIMIT 5) u2 ORDER BY u2.name;
+SELECT * FROM Users ORDER BY 1 DESC LIMIT 5;
+SELECT * FROM (SELECT * FROM Users LIMIT 5) u2 ORDER BY name;
 
-# select [kolumny] from [tabela] where [warunek] order by [kolumna] [kierunek=ASC/DESC] LIMIT [liczba] OFFSET [liczba]
+SELECT * FROM Users LIMIT 5 OFFSET 5;
+
 
 
 -- ZADANIE 6
@@ -191,8 +197,19 @@ SELECT * FROM Users ORDER BY name DESC LIMIT 5;
 
 -- 11. grupowanie i agregacje w SELECT:
 -- 	- agregaty sum, avg, count, count(*), max, min
+
+SELECT * FROM Users;
+SELECT MIN(age), MAX(age), AVG(age), COUNT(*) FROM Users;
+
+ALTER TABLE Users ADD role TINYINT UNSIGNED AFTER name;
+
 -- 	- GROUP BY (użytkownicy z różnych miast)
+SELECT role, name, AVG(age) FROM Users GROUP BY role;
+
 -- 	- HAVING (pokazuj tylko te skąd pochodzi więcej niż 2 użytkowników)
+-- SELECT role, AVG(age) as avg FROM Users WHERE age>25 GROUP BY role; # co innego
+SELECT role, AVG(age) as avg FROM Users GROUP BY role HAVING avg>25;
+
 
 # role = 1 - admnistrator
 # role = 2 - uzytkownik
@@ -244,7 +261,6 @@ SELECT * FROM Users ORDER BY name DESC LIMIT 5;
 # select [kolumny] from [tabela1] left join [tabela2] on [warunek -> tabela1.pole=tabela2.pole]
 
 
-
 -- ZADANIE 12
 
 
@@ -256,6 +272,11 @@ SELECT * FROM Users ORDER BY name DESC LIMIT 5;
 -- 19. wyrażenia i obliczenia w ramach zapytań
 
 -- ZADANIE 14
+
+#
+# select [kolumny] from [tabela] where [warunek]
+#   order by [kolumna] [kierunek=ASC/DESC] LIMIT [liczba] OFFSET [liczba]
+
 
 
 -- 20. kolejność przetwarzania  w zapytaniu SQL
@@ -269,8 +290,23 @@ SELECT * FROM Users ORDER BY name DESC LIMIT 5;
 --     8. LIMIT / OFFSET
 
 
--- 21. PROJEKT - budowa struktury danych od początku
+-- 21. kodowanie znaków CHARACTER SET i COLLATION
 
+-- SHOW CHARACTER SET;
+
+-- SELECT @@character_set_database, @@collation_database;
+
+-- ALTER DATABASE [dbname] .. CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-- ALTER TABLE [tabela] CONVERT TO CHARACTER SET utf8 COLLATE utf8_polish_ci;
+
+-- DEFAULT CHARSET=latin1;
+
+-- CREATE DATABASE [db_name] CHARACTER SET [charset_name] COLLATE [collation_name]
+
+
+
+-- 22. PROJEKT - budowa struktury danych od początku
 
 
 
