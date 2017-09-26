@@ -24,3 +24,23 @@ INSERT INTO Products VALUES
   (null, 'Nvidia GTX780',     'Gigabyte',        892.00,  23,  21);
 
 
+DROP TABLE IF EXISTS Categories;
+
+CREATE TABLE Categories (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  `desc` TEXT
+);
+
+INSERT INTO Categories (name) VALUES
+  ('monitory'),
+  ('dyski twarde'),
+  ('pamięci ram'),
+  ('klawiatury'),
+  ('myszy bezprzewodowe'),
+  ('obudowy'),
+  ('drukarki');
+
+ALTER TABLE Products ADD category_id INT UNSIGNED;
+ALTER TABLE Products ADD FOREIGN KEY (category_id) REFERENCES Categories(id);
+

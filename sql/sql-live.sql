@@ -340,15 +340,32 @@ DELETE FROM Users WHERE id=2;
 
 -- 21. kodowanie znaków CHARACTER SET i COLLATION
 
--- SHOW CHARACTER SET;
+SHOW CHARACTER SET;
 
--- SELECT @@character_set_database, @@collation_database;
+SELECT @@character_set_database, @@collation_database;
+
+ALTER DATABASE isa CHARACTER SET utf8;
+ALTER TABLE Users CONVERT TO CHARACTER SET utf8;
+ALTER TABLE Products CONVERT TO CHARACTER SET utf8;
+-- ALTER TABLE Categories CONVERT TO CHARACTER SET utf8;
+
 
 -- ALTER DATABASE [dbname] .. CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- ALTER TABLE [tabela] CONVERT TO CHARACTER SET utf8 COLLATE utf8_polish_ci;
 
+CREATE TABLE polska_tabela (
+    name VARCHAR(100)
+) DEFAULT CHARSET=utf8;
+
+INSERT INTO polska_tabela VALUES ('śśśśśś');
+SELECT * FROM polska_tabela;
+
+ALTER TABLE polska_tabela CONVERT TO CHARACTER SET utf8 COLLATE utf8_polish_ci;
+
 -- DEFAULT CHARSET=latin1;
+
+CREATE DATABASE isa2 CHARACTER SET utf8;
 
 -- CREATE DATABASE [db_name] CHARACTER SET [charset_name] COLLATE [collation_name]
 
