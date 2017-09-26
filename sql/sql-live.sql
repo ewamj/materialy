@@ -224,8 +224,14 @@ SELECT role, AVG(age) as avg FROM Users GROUP BY role HAVING avg>25;
 
 -- 12. aktualizacja (UPDATE) - modyfikujemy dane poszczególnych użytkowników
 
-
 # update [tabela] set [kolumny z wartosciami] where [warunek];
+
+SELECT * FROM Users;
+
+UPDATE Users SET age=40 WHERE name LIKE 'Jan%';
+UPDATE Users SET age=20 WHERE id BETWEEN 200 AND 210;
+
+UPDATE Users SET name='Jan' WHERE name LIKE 'Jan%';
 
 
 -- ZADANIE 8
