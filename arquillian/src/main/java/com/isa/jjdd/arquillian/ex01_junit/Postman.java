@@ -20,6 +20,7 @@ public class Postman {
     }
 
     Optional<Letter> findNextLetter(Optional<Letter> lastLetter) {
+//        return Optional.empty();
         return Optional.ofNullable(postBag.isEmpty()?null:postBag.iterator().next());
     }
 }

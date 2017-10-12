@@ -56,7 +56,8 @@ public class PostmanTest {
         Optional<Letter> result = sut.findNextLetter(Optional.empty());
 
         // then
-
+        assertThat(result).isNotEmpty();
+        assertThat(result.get()).isEqualTo(testLetter);
 
     }
 
