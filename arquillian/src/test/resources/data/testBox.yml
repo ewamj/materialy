@@ -1,0 +1,5 @@
+CreditCard:
+  - id: 1
+    boxAddress: test box address
+    boxNumber: test box number
+    boxCode: egFfkhd8cRh82tvsh3VVUg==
