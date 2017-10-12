@@ -3,7 +3,7 @@ package com.isa.jjdd.arquillian.ex01_junit;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -11,7 +11,11 @@ import java.util.Set;
 @Setter
 public class Postman {
 
-    Set<Letter> postBag = Collections.emptySet();
+    Set<Letter> postBag = new HashSet<>();
+
+    public Postman() {
+        postBag.add(new Letter());
+    }
 
     PostOffice postOffice;
 
@@ -20,6 +24,6 @@ public class Postman {
     }
 
     Optional<Letter> findNextLetter(Optional<Letter> lastLetter) {
-        return Optional.empty();
+        return Optional.ofNullable(postBag.isEmpty()?null:postBag.iterator().next());
     }
 }

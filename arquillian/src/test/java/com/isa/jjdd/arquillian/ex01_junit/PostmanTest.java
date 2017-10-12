@@ -2,6 +2,11 @@ package com.isa.jjdd.arquillian.ex01_junit;
 
 import org.junit.Test;
 
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 public class PostmanTest {
 
     Postman sut = new Postman();
@@ -9,10 +14,13 @@ public class PostmanTest {
     @Test
     public void shouldHaveNoLetterWhenEmptyPostBag() throws Exception {
         // given
+        sut.postBag.clear();
 
         // when
+        Optional<Letter> result = sut.findNextLetter(Optional.empty());
 
         // then
+        assertThat(result).isEmpty();
 
     }
 
