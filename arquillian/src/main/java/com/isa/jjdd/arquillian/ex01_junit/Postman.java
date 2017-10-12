@@ -13,10 +13,6 @@ public class Postman {
 
     Set<Letter> postBag = new HashSet<>();
 
-    public Postman() {
-        postBag.add(new Letter());
-    }
-
     PostOffice postOffice;
 
     void beginNewDay() {
