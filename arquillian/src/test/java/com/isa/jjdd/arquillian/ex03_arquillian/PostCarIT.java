@@ -24,7 +24,6 @@ public class PostCarIT {
     PostCar postCar;
 
     @Test
-    @Ignore
     public void shouldInjectPostCar() {
         // given
 
