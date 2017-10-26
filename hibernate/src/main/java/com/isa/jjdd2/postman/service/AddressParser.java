@@ -11,7 +11,13 @@ public class AddressParser {
         String street = addressElements[3].trim();
         String houseNr = addressElements[4].trim();
         String flatNr = addressElements[5].trim();
-        return new Address(person, city, street, houseNr, flatNr);
+        return Address.builder()
+                .person(person)
+                .city(city)
+                .street(street)
+                .houseNumber(houseNr)
+                .flatNumber(flatNr)
+                .build();
     }
 
 }

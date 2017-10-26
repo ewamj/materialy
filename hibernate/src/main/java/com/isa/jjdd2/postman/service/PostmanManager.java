@@ -35,7 +35,10 @@ public class PostmanManager {
             Envelope envelopeSize = Envelope.valueOf(size);
             Address senderAddress = addressParser.parseAddressIfPossible(sender);
             Address receiverAddress = addressParser.parseAddressIfPossible(receiver);
-            return Optional.of(new Letter(senderAddress, receiverAddress, envelopeSize));
+            return Optional.of(Letter.builder()
+                    .sender(senderAddress)
+                    .receiver(receiverAddress)
+                    .size(envelopeSize).build());
         } catch (Throwable e) {
             log.error("Letter preparing error: " + e.getMessage(), e);
             return Optional.empty();

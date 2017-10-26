@@ -7,11 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.fluttercode.datafactory.impl.DataFactory;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
-import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,11 +26,10 @@ public class PostOffice {
                 .iterator().nextInt();
         log.debug("Preparing {} letters.", lettersCount);
         return Stream.generate(
-                () -> new Letter(
-                        generateAddress(),
-                        generateAddress(),
-                        generateEnvelop()
-                )
+                () -> Letter.builder()
+                        .sender(generateAddress())
+                        .receiver(generateAddress())
+                        .size(generateEnvelop()).build()
         ).limit(lettersCount).collect(Collectors.toSet());
     }
 
@@ -43,11 +39,12 @@ public class PostOffice {
     }
 
     private Address generateAddress() {
-        return new Address(
-                dataFactory.getName(),
-                dataFactory.getCity(),
-                dataFactory.getStreetName(),
-                dataFactory.getNumberText(2),
-                dataFactory.getNumberText(2));
+        return Address.builder()
+                .person(dataFactory.getName())
+                .city(dataFactory.getCity())
+                .street(dataFactory.getStreetName())
+                .flatNumber(dataFactory.getNumberText(2))
+                .houseNumber(dataFactory.getNumberText(2))
+                .build();
     }
 }

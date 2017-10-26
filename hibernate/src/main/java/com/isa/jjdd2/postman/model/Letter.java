@@ -1,12 +1,12 @@
 package com.isa.jjdd2.postman.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 @Data
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 public class Letter {
+
     Address sender;
 
     Address receiver;

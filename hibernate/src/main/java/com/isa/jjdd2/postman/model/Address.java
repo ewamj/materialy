@@ -1,12 +1,23 @@
 package com.isa.jjdd2.postman.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.experimental.Tolerate;
+
+import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Builder
+@Entity
 public class Address {
+
+    @Tolerate
+    public Address() {
+    }
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    Long id;
 
     String person;
 
@@ -14,8 +25,10 @@ public class Address {
 
     String street;
 
+    @Column(name = "house_number")
     String houseNumber;
 
+    @Column(name = "flat_number")
     String flatNumber;
 
 }
